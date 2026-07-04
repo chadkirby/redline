@@ -1,0 +1,64 @@
+{
+  "name": "@ckirby/redline",
+  "version": "1.0.0",
+  "description": "A small TypeScript diff engine for comparing multi-line strings with structured output.",
+  "keywords": [
+    "diff",
+    "text-diff",
+    "typescript",
+    "line-diff",
+    "word-diff"
+  ],
+  "license": "ISC",
+  "author": "Chad Kirby",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckirby/redline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ckirby/redline/issues"
+  },
+  "homepage": "https://github.com/ckirby/redline#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "format": "oxfmt --write package.json tsconfig.json src",
+    "lint": "oxlint src",
+    "prepublishOnly": "pnpm build && pnpm test && pnpm typecheck && pnpm lint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "diff-match-patch-ts": "^2.0.0"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
+    "typescript": "7.0.1-rc",
+    "vite": "^8.1.3",
+    "vitest": "^4.1.9"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.9.0",
+      "onFail": "download"
+    }
+  }
+}
